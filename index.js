@@ -11,7 +11,7 @@ function initApp() {
     addMember();
 }
 
-function addMember() {
+function addMember() 
     inquirer.prompt([{
         message: "Enter team member's name",
         name: "name"
