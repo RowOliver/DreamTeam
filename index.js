@@ -24,8 +24,24 @@ function addMember() {
             "Intern",
             "Manager"
         ],
+        name:"role"
+    },
+    {
+        message: "Enter team member's id",
+        name: "id"
+    },
+    {
+        message: `Enter team member's ${roleInfo}`,
+        name: "roleInfo"
 
-    }
+    },
+    {
+        type: "list",
+        message: " Would you like to add mre team members?",
+        choices: [
+            "yes",
+            "no"
+        ],
+        name: "addingMembers"
+
     }])
-}
-
