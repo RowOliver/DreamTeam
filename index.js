@@ -35,14 +35,4 @@ function addMember()
         naem: "email"
 
     }])
-    .then(function({name,role,id,email}) {
-        let roleInfo = " ";
-        if (role === " Engineer") {
-            roleInfo = "GitHub username";
-
-        } else if (role === "Intern") {
-            roleInfo = "school name";
-        } else {
-            roleInfo = "office phone number";
-
-        }   
+    
