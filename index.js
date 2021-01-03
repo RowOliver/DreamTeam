@@ -11,20 +11,20 @@ function initApp() {
     addMember();
 }
 
-function addMember() 
+function addMember() {
     inquirer.prompt([{
         message: "Enter team member's name",
         name: "name"
     },
     {
         type: "list",
-        message: " Select team member's role",
+        message: "Select team member's role",
         choices: [
             "Engineer",
             "Intern",
             "Manager"
         ],
-        name:"role"
+        name: "role"
     },
     {
         message: "Enter team member's id",
@@ -32,8 +32,7 @@ function addMember()
     },
     {
         message: "Enter team member's email address",
-        naem: "email"
-
+        name: "email"
     }])
     .then(function({name, role, id, email}) {
         let roleInfo = "";
@@ -56,19 +55,26 @@ function addMember()
                 "no"
             ],
             name: "addingMembers"
-            
         }])
-
-        .then(function({roleInfo, addMember}) {
+        .then(function({roleInfo, addingMembers}) {
             let newMember;
             if (role === "Engineer") {
                 newMember = new Engineer(name, id, email, roleInfo);
-            }else if (role == "Intern") {
+            } else if (role === "Intern") {
                 newMember = new Intern(name, id, email, roleInfo);
-
-            }else {
+            } else {
                 newMember = new Manager(name, id, email, roleInfo);
             }
+            employees.push(newMember);
+            addHtml(newMember)
+            .then(function() {
+                if (addingMembers === "yes") {
+                    addMember();
+                } else {
+                    finalHTML();
+                }
+            });
             
-        
-        
+        });
+    });
+}
