@@ -35,4 +35,40 @@ function addMember()
         naem: "email"
 
     }])
-    
+    .then(function({name, role, id, email}) {
+        let roleInfo = "";
+        if (role === "Engineer") {
+            roleInfo = "GitHub username";
+        } else if (role === "Intern") {
+            roleInfo = "school name";
+        } else {
+            roleInfo = "office phone number";
+        }
+        inquirer.prompt([{
+            message: `Enter team member's ${roleInfo}`,
+            name: "roleInfo"
+        },
+        {
+            type: "list",
+            message: "Would you like to add more team members?",
+            choices: [
+                "yes",
+                "no"
+            ],
+            name: "addingMembers"
+            
+        }])
+
+        .then(function({roleInfo, addMember}) {
+            let newMember;
+            if (role === "Engineer") {
+                newMember = new Engineer(name, id, email, roleInfo);
+            }else if (role == "Intern") {
+                newMember = new Intern(name, id, email, roleInfo);
+
+            }else {
+                newMember = new Manager(name, id, email, roleInfo);
+            }
+            
+        
+        
