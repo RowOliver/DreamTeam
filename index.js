@@ -146,10 +146,48 @@ function addHtml(member) {
             </ul>
             </div>
         </div>`;
-        }
-    
-
+              } else {
+            const officePhone = member.getOfficeNumber();
+            data = `<div class="col-6">
+            <div class="card mx-auto mb-3" style="width: 18rem">
+            <h5 class="card-header">${name}<br /><br />Manager</h5>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">ID: ${id}</li>
+                <li class="list-group-item">Email Address: ${email}</li>
+                <li class="list-group-item">Office Phone: ${officePhone}</li>
+            </ul>
+            </div>
+        </div>`
     }
+    console.log("adding member to your team");
+    fs.appendFile("./develop/templates/newmain.html", data, function (err) {
+        if (err) {
+            return reject(err);
+        };
+        return resolve();
+    });
+});
+
+
+
+
+
+}
+
+function finalHTML() {
+    const html = ` </div>
+    </div>
+    
+</body>
+</html>`;
+
+    fs.appendFile("./develop/templates/newmain.html", html, function (err) {
+        if (err) {
+            console.log(err);
+        };
+    });
+    console.log("end");
 }
 
 
+initApp();
