@@ -4,7 +4,7 @@ const Engineer = require("./Develop/lib/Engineer.js");
 const Intern = require("./Develop/lib/Intern.js");
 const Manager = require("./Develop/lib/Manager.js");
 
-const Employee = [];
+const employee = [];
 
 function initApp() {
     startingHTML();
