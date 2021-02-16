@@ -31,6 +31,7 @@ const renderManager = manager => {
   template = replacePlaceholders(template, "id", manager.getId());
   template = replacePlaceholders(template, "officeNumber", manager.getOfficeNumber());
   return template;
+  
 };
 
 const renderEngineer = engineer => {

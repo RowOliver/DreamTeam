@@ -1,8 +1,14 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
-const Engineer = require("./Develop/lib/Engineer.js");
-const Intern = require("./Develop/lib/Intern.js");
-const Manager = require("./Develop/lib/Manager.js");
+const Engineer = require("../DreamTeam/Develop/lib/Engineer");
+const Intern = require("../DreamTeam/Develop/lib/Intern");
+const Manager = require("../DreamTeam/Develop/lib/Manager");
+
+// const OUTPUT_DIR = path.resolve(__dirname, "output");
+// const outputPath = path.join(OUTPUT_DIR, "team.html");
+
+// const render = require("./lib/htmlRenderer");
+// const { fetchAsyncQuestionProperyQuestionProperty } = require("inquirer/lib/utils/utils");
 
 const employee = [];
 
@@ -65,7 +71,7 @@ function addMember() {
             } else {
                 newMember = new Manager(name, id, email, roleInfo);
             }
-            employees.push(newMember);
+            employee.push(newMember);
             addHtml(newMember)
             .then(function() {
                 if (addingMembers === "yes") {
@@ -79,7 +85,7 @@ function addMember() {
     });
 }
 
-function renderHTML(memberArray) {
+function htmlRenderer(memberArray) {
     startingHTML();
     for (const member of memberArray) {
         addHtml(member);
