@@ -4,6 +4,7 @@ class Employee {
         this.name= name;
         this.email = email;
         this.id = id;
+        // this.officeNumber = officeNumber; 
     
     }
 
@@ -21,6 +22,10 @@ class Employee {
 
     getEmail(){
         return this.email;
+    }
+
+    getOfficeNumber(){
+        return this.officeNumber;
     }
 
     getRole(){
